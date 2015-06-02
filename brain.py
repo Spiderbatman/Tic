@@ -12,7 +12,7 @@ class Brain:
 		for i in range(1 << 18):
 			isFull = True
 			for j in range(9):
-				if (((i >> (2 * i)) & 3) == 0):
+				if (((i >> (2 * j)) & 3) == 0):
 					isFull = False
 			if (isFull):
 				self.checked[i] = True
@@ -60,7 +60,4 @@ class Brain:
 							self.moves[board][1] = j
 			self.checked[board] = True
 			self.posEval[board] = choice
-		if (board == 256):
-			print(turn),
-			print(self.moves[board])
 		return self.posEval[board]

@@ -24,10 +24,14 @@ class Board:
 		return self.state
 	def isOver(self):
 		for player in range(1, 3):
-			mask = 0
 			for comb in self.winningPos:
+				mask = 0
 				for i in comb:
 					mask = (mask | (player << (i * 2)))
-				if ((self.state & (mask)) == mask):
+				if ((self.state & mask) == mask):
 					return True
-		return False
+		isFull = True
+		for i in range(9):
+			if ((self.state >> (i * 2)) & 3 == 0):
+				isFull = False 
+		return isFull
