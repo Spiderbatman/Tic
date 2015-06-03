@@ -2,12 +2,14 @@ from board import Board
 from brain import Brain
 
 board = Board()
-brain = Brain(2)
 
+player = int(raw_input("Which player are you?"))
+
+brain = Brain(player ^ 3)
 turn = 1
 
 while (not board.isOver()):
-	if (turn == 1):
+	if (turn == player):
 		row = raw_input("Enter row ")
 		col = raw_input("Enter column ")
 		board.addMove(int(row), int(col), turn)

@@ -6,6 +6,7 @@ class Brain:
 	player = 0
 	def __init__(self, player):
 		self.player = player
+		print("Thinking...")
 		for i in range(1 << 18):
 			self.checked[i] = False
 			self.moves[i] = [-1, -1]
